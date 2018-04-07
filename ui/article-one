@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<title>TImer </title>
+	<style >
+		body {
+			margin-left: 10%;
+			margin-right: 10%;
+			
+			background-size: cover; 
+			background-repeat: no-repeat;
+			background-image: url("http://susanrowlen.com/wp-content/uploads/time-7.jpg");
+		}
+		
+		h1{
+			font-family: Arial;
+			font-size: 9em;
+			color: white;
+		}
+	</style>
+	<script >
+	var minutesEntered;
+	var secondsEntered;
+		var timerValue;
+		var timer;
+			var  m = s = 0 ;
+	var newTime = '';
+	var time;
+
+		function startTimer(){
+			minutesEntered=(document.getElementById("minutes").value);
+			secondsEntered=(document.getElementById("seconds").value);
+			timerValue= minutesEntered + secondsEntered;
+
+			if (timerValue=="") {
+				timerValue=300;
+			}
+			//	time= timer;
+			//	m = Math.floor( time / (60 * 1000) );
+			//	time = time % (60 * 1000);
+			//	s = time 
+			//	newTime =  pad(m, 2) + ':' + pad(s, 2) + ':';
+
+			console.log(newTime);
+		document.getElementById("timerBox").hidden = false;
+		timer = setInterval(runTimer, 1000);
+				
+		}
+		function runTimer(){
+			document.getElementById("timerBox").innerHTML = timerValue--;
+		
+		if (timerValue<0){
+			clearInterval(timer);
+			alert("boom");
+			stop();
+			
+		}
+	}
+	</script>
+
+</head>
+<body>
+<div class="row">
+    <div class="col-xs-offset-4">
+    <div class="input-group">
+ 	<div class="col-xs-6">  
+
+ 		<input style="margin-top: 90px" class="form-control" id="minutes">  <h3 style="margin-top: 90px; color: white" > minutes </h3>
+
+ 	</div>
+ 	
+ 	<div class="col-xs-6"><input style="margin-top: 90px" class="form-control" id="seconds"><h3 style="margin-top: 90px; color: white"> seconds</h3>
+
+</div>
+
+</div>
+ </div><!-- /.col-lg-4 -->
+
+
+<button  style="margin-top: 20px" class="btn-lg btn-success center-block" onclick="startTimer()" >Start!</button>
+<button style="margin-top: 20px" class="radius large secondary button center-block"  id="timer_reset" onclick="resetTimer()">Reset</button>
+ </div><!-- /.col-lg-4 -->
+</div>
+<h1 style="color: blue" class="text-center" id="timerBox" hidden="true">start!</h1>
+
+</body>
+</html>
